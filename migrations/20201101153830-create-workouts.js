@@ -12,10 +12,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       workoutCategory: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       workoutDescription: {
         type: Sequelize.STRING
+      },
+      userId: {
+        type:Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,

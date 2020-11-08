@@ -8,7 +8,16 @@ module.exports = (sequelize, DataTypes) => {
     workoutId: DataTypes.INTEGER
   }, {});
   exercises.associate = function(models) {
-    // associations can be defined here
+    exercises.belongsTo(models.exercisesCategory, {
+      foreignKey: 'exerciseCategory',
+      as: 'categoryOfExercise'
+    })
+
+    exercises.belongsTo(models.workouts), {
+      foreignKey: 'workoutId',
+      as: 'Exercises'
+    }
+
   };
   return exercises;
 };

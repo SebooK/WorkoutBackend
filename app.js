@@ -1,3 +1,4 @@
+require('dotenv').config()
 const createError = require('http-errors'),
   express = require('express'),
   bodyParser = require('body-parser'),
@@ -5,8 +6,9 @@ const createError = require('http-errors'),
   cors = require('cors'),
   cookieParser = require('cookie-parser'),
   logger = require('morgan'),
-  session = require('express-session'),
-  passport = require('passport')
+  session = require('express-session')
+
+
 
 
 const app = express()
@@ -27,8 +29,6 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 })) // session secret
-app.use(passport.initialize())
-app.use(passport.session())
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -45,8 +45,9 @@ app.use('/', indexRouter)
 
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  res.status(404)
+app.use(function (err,req, res, next) {
+  console.log(err)
+  res.status(404).json(err)
 })
 
 // error handler
@@ -58,7 +59,7 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500)
   console.log(err)
-  res.render('error')
+ res.send({'error':err})
 })
 db.sequelize.sync()
 app.listen(port, () => console.log(`Listening on port ${port}`))

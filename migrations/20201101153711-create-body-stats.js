@@ -41,6 +41,10 @@ module.exports = {
       calf: {
         type: Sequelize.FLOAT
       },
+      userId: {
+        allowNull: true,
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

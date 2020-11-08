@@ -1,4 +1,5 @@
-'use strict';
+'use strict'
+
 module.exports = (sequelize, DataTypes) => {
   const bodyStats = sequelize.define('bodyStats', {
     date: DataTypes.DATE,
@@ -11,10 +12,14 @@ module.exports = (sequelize, DataTypes) => {
     waist: DataTypes.FLOAT,
     hip: DataTypes.FLOAT,
     thigh: DataTypes.FLOAT,
-    calf: DataTypes.FLOAT
-  }, {});
-  bodyStats.associate = function(models) {
-    // associations can be defined here
-  };
-  return bodyStats;
-};
+    calf: DataTypes.FLOAT,
+    userId: DataTypes.INTEGER
+  }, {})
+  bodyStats.associate = function (models) {
+    bodyStats.belongsTo(models.User, {
+      foreignKey: 'userId',
+      as: 'bodyStats'
+    })
+  }
+  return bodyStats
+}

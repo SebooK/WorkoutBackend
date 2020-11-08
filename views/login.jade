@@ -1,20 +1,16 @@
-html
-    body
-        h1
-            span  #{title}
-        div
-            form(action='/signup',method='post')
-                div(data-role='fieldcontain')
-                    fieldset(data-role='controlgroup')
-                        label(for='username') username
-                            input(id='username',type='text',value='',placeholder='username',name='username')
-                div#passworddiv(data-role='fieldcontain')
-                    fieldset(data-role='controlgroup')
-                        label(for='password') password
-                            input(id='password',type='password',value='',placeholder='',name='password')
-                div(data-role='fieldcontain')
-                    fieldset(data-type='vertical', data-role='controlgroup')
-                        label(for='showpass') show password
-                        input(id='showpass',type='checkbox')
-                div(data-role='fieldcontain')
-                    input(type='submit',value='Sign Up',data-transition='fade', data-theme='c')
+
+block content
+    .container
+        h1 Login
+        p.lead
+            | Sign in with your account. Don’t have one?
+            a(href='/register')  Register Now.
+            form(role='form', action='/login', method='post')
+                .form-group
+                    label(for='username') Username
+                    input.form-control(type='text', id='user', name='username', placeholder='enter a username')
+                .form-group
+                    label(for='password') Password
+                    input.form-control(type='password', id='password', name='password', placeholder='enter a password')
+                button.btn.btn-primary(type='submit') Submit
+    a.btn.btn-default(role='button', href='/') Cancel

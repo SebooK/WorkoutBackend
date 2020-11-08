@@ -1,10 +1,13 @@
 'use strict'
 module.exports = (sequelize, DataTypes) => {
-  const exerciseCategory = sequelize.define('exerciseCategory', {
+  const exerciseCategory = sequelize.define('exercisesCategory', {
     categoryName: DataTypes.STRING
   }, {})
   exerciseCategory.associate = function (models) {
-    // associations can be defined here
+    exerciseCategory.hasMany(models.exercises, {
+      foreignKey: 'exerciseCategory',
+      as: 'exerciseCategory'
+    })
   }
   return exerciseCategory
 }
