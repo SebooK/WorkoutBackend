@@ -1,13 +1,13 @@
-{
-  "development": {
-    "username": "root",
-    "password": "admin",
-    "database": "workoutApp",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+export const Config = {
+  development: {
+    username: "root",
+    password: "admin",
+    database: "workoutApp",
+    host: "127.0.0.1",
+    dialect: "mysql",
+    operatorsAliases: false
   },
-  "test": {
+  test: {
     "username": "root",
     "password": "admin",
     "database": "database_test",
@@ -15,7 +15,7 @@
     "dialect": "mysql",
     "operatorsAliases": false
   },
-  "production": {
+  production: {
     "username": "root",
     "password": "admin",
     "database": "database_production",
@@ -26,3 +26,5 @@
   "jwtPrivateKey": "workoutAppKey"
 
 }
+
+

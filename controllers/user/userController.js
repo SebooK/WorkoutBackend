@@ -1,4 +1,4 @@
-const User = require('../../models').User
+import User from '../../models/user'
 const bodyStats = require('../../models').bodyStats
 const workouts = require('../../models').workouts
 module.exports = {

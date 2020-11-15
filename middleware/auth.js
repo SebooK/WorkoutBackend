@@ -1,13 +1,15 @@
-const jwt = require('jsonwebtoken')
+import jwt from 'jsonwebtoken'
+export default class Auth {
 
-module.exports = {
-  verify (req, res, next) {
+
+ static verify(req, res, next)
+  {
     console.log(req.cookies.jwt)
     let accessToken = req.cookies.jwt
 
     if (!accessToken) {
       res.redirect('/')
-      return res.status(403).send({ message: 'Unauthorized' });
+      return res.status(403).send({ message: 'Unauthorized' })
 
     }
     let payload
@@ -22,9 +24,5 @@ module.exports = {
         return res.send({ message: e })
       }
     }
-  },
-  refresh(req,res) {
-
   }
 }
-
